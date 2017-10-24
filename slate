@@ -1,1 +1,11 @@
-.slate
+# just for its Grid / Hint and versionable configuration to start with.
+bind 1:ctrl,s grid 0:6,4
+bind 0:ctrl,s hint
+
+bind 2:ctrl,s relaunch
+bind l:ctrl,s push right bar-resize:screenSizeX/2
+bind h:ctrl,s  push left bar-resize:screenSizeX/2
+
+bind k:ctrl,s corner top-left resize:screenSizeX;screenSizeX
+bind j:ctrl,s move screenSizeX/4;0 screenSizeX/2;screenSizeY
+

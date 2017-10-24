@@ -1,0 +1,43 @@
+{
+	"Select Statement": {
+		"prefix": "pgsql",
+		"body": [
+			"Select * ",
+			  "From ${tableName}",
+			 "Where 1=1 And id = ? ",
+			 ";"
+		],
+		"description": "Insert 'Select * From ... Where ... ' statement"
+	},
+   
+	"Create Function": {
+		"prefix": "pgsql",
+		"body": [
+			"Create Or Replace Function ${funcName}( data json ) Returns json As $$",
+			"\tDeclare",
+			"\t\t-- declare variables",
+			"\t\t-- for example: id int := Cast( data->>'id' as int ); ",
+            "Begin",
+			"\t\t --do something useful",
+            "\tReturn '{}';",
+            "End;",
+            "$$ language plpgsql;"
+		],
+		"description": "Insert 'Create Or Replace Function ...' statement"
+	},
+    
+	"Create Table": {
+		"prefix": "pgsql",
+		"body": [
+			"Create Table ${tableName} (",
+            "\tid serial primary key,",
+			"\tcd text not null,",
+            "\tnm text,",
+			"\t--ref int references another.table,",
+            "\tcreated timestamptz default now()",
+            ");",
+			"Create Index on ${tableName} (cd);"
+		], 
+		"description": "Insert 'Create Table ...' statement"
+	}
+}

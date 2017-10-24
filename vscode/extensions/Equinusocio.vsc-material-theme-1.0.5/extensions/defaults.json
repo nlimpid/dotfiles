@@ -1,0 +1,65 @@
+{
+  "accents": {
+    "Acid Lime": "#C6FF00",
+    "Blue": "#2979FF",
+    "Breaking Bad": "#388E3C",
+    "Bright Teal": "#64FFDA",
+    "Cyan": "#00BCD4",
+    "Graphite": "#616161",
+    "Indigo": "#5C6BC0",
+    "Lime": "#7CB342",
+    "Orange": "#FF7042",
+    "Pink": "#FF4081",
+    "Purple": "#AB47BC",
+    "Red": "#E57373",
+    "Sky": "#84FFFF",
+    "Tomato": "#F44336",
+    "Teal": "#80CBC4",
+    "Yellow": "#FFA000"
+  },
+  "changelog": {
+    "lastversion": "1.0.5"
+  },
+  "icons": {
+    "theme": {
+      "iconDefinitions": {
+        "_folder_dark": {
+          "iconPath": "../icons/folder.svg"
+        },
+        "_file_folder": {
+          "iconPath": "../icons/folder.svg"
+        },
+        "_folder_dark_build": {
+          "iconPath": "../icons/folder-build.svg"
+        },
+        "_file_folder-build": {
+          "iconPath": "../icons/folder-build.svg"
+        },
+        "_folder_open": {
+          "iconPath": "../icons/folder-outline.svg"
+        },
+        "_folder_open_build": {
+          "iconPath": "../icons/folder-outline-build.svg"
+        }
+      }
+    }
+  },
+  "themeVariants": {
+    "Darker": "./themes/Material-Theme-Darker.json",
+    "Default": "./themes/Material-Theme-Default.json",
+    "Light": "./themes/Material-Theme-Lighter.json",
+    "Palenight": "./themes/Material-Theme-Palenight.json"
+  },
+  "themeVariantsColours": {
+    "Darker": "#424242",
+    "Default": "#4A616C",
+    "Light": "#90A4AE",
+    "Palenight": "#4E5579"
+  },
+  "themeVariantsUITheme": {
+    "Darker": "vs-dark",
+    "Default": "vs-dark",
+    "Light": "vs",
+    "Palenight": "vs-dark"
+  }
+}

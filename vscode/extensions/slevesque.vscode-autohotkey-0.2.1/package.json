@@ -1,0 +1,67 @@
+{
+	"name": "vscode-autohotkey",
+	"displayName": "AutoHotkey",
+	"description": "AutoHotkey language support for VS Code",
+	"version": "0.2.1",
+	"publisher": "slevesque",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Languages",
+		"Snippets"
+	],
+	"license": "SEE LICENSE IN LICENSE.md",
+	"icon": "icon.png",
+	"bugs": {
+		"url": "https://github.com/stef-levesque/vscode-autohotkey/issues"
+	},
+	"homepage": "https://github.com/stef-levesque/vscode-autohotkey/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stef-levesque/vscode-autohotkey.git"
+	},
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "dark"
+	},
+	"keywords": [
+		"vscode",
+		"autohotkey",
+		"ahk"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "ahk",
+				"aliases": [
+					"AutoHotkey",
+					"autohotkey",
+					"ahk"
+				],
+				"extensions": [
+					".ahk"
+				],
+				"configuration": "./ahk.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ahk",
+				"scopeName": "source.ahk",
+				"path": "./syntaxes/ahk.tmLanguage"
+			}
+		],
+		"snippets": [
+			{
+				"language": "ahk",
+				"path": "./snippets/ahk.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "ce49f801-147f-49b8-9b1b-a8ee3dff91ef",
+		"publisherId": "30cbfd41-b05d-4739-9271-f782deb68b9e",
+		"publisherDisplayName": "slevesque"
+	}
+}

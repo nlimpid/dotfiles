@@ -1,0 +1,8 @@
+.DS_Store
+*.sublime-workspace
+/fixtures
+app.json
+dist/test
+dist/generateFixtures*
+scripts/runCircleCi*
+circle.yml

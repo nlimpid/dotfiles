@@ -1,0 +1,35 @@
+sudo: false
+os:
+- linux
+language: node_js
+
+node_js:
+- 6.3.1
+
+script:
+- npm install -g gulp
+- gulp
+
+after_success:
+- npm run package
+
+env:
+  global:
+    secure: qCJJ6LFx7ZespK10R1FHIsgCdxRbEPjVNlpysTEy71adb6rJeYPHGuZ81IQN1zqN3vpRnwtamkGHbCV61pG881SVPqFY1jj2TGriUQctE9WsGnB3vyeeodlWLKJ0EplPwG9erX/sud1DDwJPg/x02/rI1NQDHRFBGOZvyKDiuRdDfNT5CmEu9KNkvrAeDWNt34dSITGnOGsFUYq0SZ1u4Uo34dVoV906jKNQYUoLzMiI5Pl6sg0a3X1JnbAGSSULlvWO+g5fqrUb4S3wCzEeqoJpflYZ9YITC5npZf40qhGjMwPxX983F9OjMNPd+rg/BDO45ziHPlpuJKGBmHrYuc2dgeJ/t9XZ7/SJBCEsHpOnCccxOIkC2kXcowyuWtXxvANNI4RMtardM1NUAQb9DJUSYGJQLe616yrT3/N/xxp01ZAijKOMFOHOiAr0ARwIgKW27ObUHGk5Fu8BUXr39/ossdORnfnlm7UITlH8L+SF/jQ0yudnSMABlFVOcR1quQsJW0Xj9NqGgGqfTy0y8jY3+C7gaQiI0J6Wh0JiFxfBZHHbcF6/tH74Jk/c2DHDsq+QfKN10uBOV3BavS6pGQFHduf5apg+gwcIDcTE6DN9ED+SR+NqhKtIs8GYEpDliU85kNYo7ik9gSFjlJaNW5NUBKN0p08ASMVE1NKP/Go=
+
+deploy:
+- provider: releases
+  api_key:
+    secure: rgl8x1sjWLXO/hueU8pL0aBSg0PT+PJiNDRxn+EMuzSESEDgihMBCyz8CR+gjSqfYDXnnPLqUk/BZL+3H1cAWiRVPlh7A5icYd1x7g6xuswQxvVamdBQ8e3BSsdj3BFWu4YYKzSW3ZoCpg5ANL1e5EUysPkmorrsNma8jt3O0TLDU7eSkxtRm4/UOunWVytckH15nmOjo5AWeiuJ3qc+iuSFFjg4/Mm9OfRfHI47Fc9m7hx5g/9nGvV+o5vJNq1i+Gii3+0rd1ewGyD0kkVl7JetYOAiUN8Q6qA58TVXOlFZ45lxGAwzOSryDmpOw8tjn/aVGugibmqbd1yVKimQnXW8bAQrGcJ3obYsbImAPTrhJRLrn3LRQichj9sbvBhH4b4F9K40be+sTOh2oNUyqfgN+qoKWz9tDk2S3g5moEnCUp4jED61hEWEoUNX7mV+hPQpnJHvSkbXPlXrIfslEWYytNYQL1TBJXOg99fKLjIHqOYokt0nOw46uaGN2IxStFMDTpSCF3+h47uYRBItrk9tHxT/ZmfL1tUD2n4W5dLvqLkp7YLIbuSdhgFD9+GVaB8vrQnkxw5pbXzmP7FHs4INE6qvOlwrDh5WwZDSCB8zSRtuTfiKoJXBhAjIv0p8HbZKhOxgdbGoCj0IO1XgTJys0lcPhyf55mEEblb0N/I=
+  file_glob: true
+  file: "*.vsix"
+  skip_cleanup: true
+  on:
+    repo: trixnz/vscode-lua
+    tags: true
+- provider: script
+  script: npm run travis-deploy
+  skip_cleanup: true
+  on:
+    repo: trixnz/vscode-lua
+    tags: true

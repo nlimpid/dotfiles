@@ -1,0 +1,51 @@
+{
+	"name": "spacegray-vscode",
+	"displayName": "Spacegray VSCode",
+	"description": "Spacegray theme for visual studio code.",
+	"version": "1.2.3",
+	"publisher": "ionutvmi",
+	"icon": "screenshots/eighties.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ionutvmi/spacegray-vscode"
+	},
+	"bugs": {
+		"url": "https://github.com/ionutvmi/spacegray-vscode/issues",
+		"email": "ionutvmi@gmail.com"
+	},
+	"engines": {
+		"vscode": "*"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Spacegray Ocean Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/base16-ocean.dark.json"
+			},
+			{
+				"label": "Spacegray Eighties Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/base16-eighties.dark.json"
+			},
+			{
+				"label": "Spacegray Mocha Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/base16-mocha.dark.json"
+			},
+			{
+				"label": "Spacegray Ocean Light",
+				"uiTheme": "vs",
+				"path": "./themes/base16-ocean.light.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "bcf8d2e0-44aa-4c41-bba0-265032fcd6f6",
+		"publisherId": "3a1bd914-dacc-4903-89d9-bd7ff757eb7f",
+		"publisherDisplayName": "Mihai Vilcu"
+	}
+}

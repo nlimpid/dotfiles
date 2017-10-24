@@ -1,0 +1,216 @@
+{
+	"name": "vscode-apielements",
+	"displayName": "API Elements extension",
+	"description": "VSCode client for API Elements",
+	"author": "Vincenzo Chianese",
+	"license": "MIT",
+	"version": "0.6.7",
+	"preview": false,
+	"icon": "logo.png",
+	"bugs": {
+		"url": "https://github.com/XVincentX/vscode-apielements/issues"
+	},
+	"homepage": "https://github.com/XVincentX/vscode-apielements/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/XVincentX/vscode-apielements.git"
+	},
+	"publisher": "vncz",
+	"engines": {
+		"vscode": "^1.11.0"
+	},
+	"categories": [
+		"Languages",
+		"Linters",
+		"Snippets"
+	],
+	"keywords": [
+		"api blueprint",
+		"swagger",
+		"mson",
+		"apiElements"
+	],
+	"activationEvents": [
+		"onLanguage:apiblueprint",
+		"onLanguage:swagger",
+		"onCommand:apiElements.parserOutput",
+		"onCommand:apiElements.apiary.fetchApi",
+		"onCommand:apiElements.apiary.publishApi",
+		"onCommand:apiElements.apiary.logout",
+		"onCommand:apiElements.apiary.browse",
+		"onCommand:apiElements.apiary.preview"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "API Elements parser configuration",
+			"properties": {
+				"apiElements.parser.requireBlueprintName": {
+					"type": "boolean",
+					"default": false,
+					"description": "Set to true generate an error if the blueprint is missing a title."
+				},
+				"apiElements.parser.exportSourcemap": {
+					"type": "boolean",
+					"default": true,
+					"description": "Set to true to generate sourcemap for current document."
+				},
+				"apiElements.editor.adjustOptions": {
+					"type": "boolean",
+					"description": "On opening API Elements documents, editor settings will be adjusted for you",
+					"default": true
+				},
+				"apiElements.validation.debounce": {
+					"type": "number",
+					"description": "Debounce time before triggering the validation parser logic",
+					"default": 1000
+				},
+				"apiElements.symbols.api": {
+					"type": "boolean",
+					"description": "Determines if look for api when symbols are requested",
+					"default": true
+				},
+				"apiElements.symbols.resourceGroup": {
+					"type": "boolean",
+					"description": "Determines if look for resourceGroup when symbols are requested",
+					"default": true
+				},
+				"apiElements.symbols.resource": {
+					"type": "boolean",
+					"description": "Determines if look for resource when symbols are requested",
+					"default": true
+				},
+				"apiElements.symbols.transition": {
+					"type": "boolean",
+					"description": "Determines if look for transition when symbols are requested",
+					"default": true
+				}
+			}
+		},
+		"languages": [
+			{
+				"id": "apiblueprint",
+				"aliases": [
+					"API Blueprint"
+				],
+				"extensions": [
+					".apib",
+					".apiblueprint"
+				],
+				"firstLine": "^[﻿]?(((VERSION:( |\t)2)|(FORMAT:( |\t)(X-)?1A))([\n\r]{1,2}|$))",
+				"mimetypes": [
+					"text/vnd.apiblueprint"
+				]
+			},
+			{
+				"id": "mson",
+				"aliases": [
+					"MSON"
+				],
+				"extensions": [
+					".mson"
+				]
+			},
+			{
+				"id": "swagger",
+				"aliases": [
+					"Swagger"
+				],
+				"extensions": [
+					".swagger"
+				],
+				"mimetypes": [
+					"application/swagger+json",
+					"application/swagger+yaml"
+				],
+				"firstLine": ""
+			}
+		],
+		"grammars": [
+			{
+				"language": "apiblueprint",
+				"scopeName": "text.html.markdown.source.gfm.apib",
+				"path": "./syntaxes/APIBlueprint.tmLanguage"
+			},
+			{
+				"language": "mson",
+				"scopeName": "text.html.markdown.source.gfm.mson",
+				"path": "./syntaxes/MSON.tmLanguage"
+			},
+			{
+				"language": "swagger",
+				"scopeName": "source.yaml",
+				"path": "./syntaxes/YAML.tmLanguage"
+			}
+		],
+		"snippets": [
+			{
+				"language": "apiblueprint",
+				"path": "./snippets/APIBlueprint.json"
+			},
+			{
+				"language": "swagger",
+				"path": "./snippets/Swagger.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "apiElements.parserOutput",
+				"title": "Show parser output",
+				"category": "API Elements"
+			},
+			{
+				"command": "apiElements.apiary.fetchApi",
+				"title": "Fetch API from Apiary",
+				"category": "API Elements - Apiary",
+				"icon": "./resources/apiary.ico"
+			},
+			{
+				"command": "apiElements.apiary.publishApi",
+				"title": "Publish the current API to Apiary",
+				"category": "API Elements - Apiary",
+				"icon": "./resources/apiary.ico"
+			},
+			{
+				"command": "apiElements.apiary.logout",
+				"title": "Removes the current Apiary token from VSCode",
+				"category": "API Elements - Apiary",
+				"icon": "./resources/apiary.ico"
+			},
+			{
+				"command": "apiElements.apiary.browse",
+				"title": "Browses the current API on Apiary documentation",
+				"category": "API Elements - Apiary",
+				"icon": "./resources/apiary.ico"
+			},
+			{
+				"command": "apiElements.apiary.preview",
+				"title": "Previews the current API on Apiary documentation",
+				"category": "API Elements - Apiary",
+				"icon": "./resources/apiary.ico"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/node": "^7.0.12",
+		"tslint": "^5.0.0",
+		"typescript": "^2.2.2",
+		"vscode": "^1.0.3"
+	},
+	"dependencies": {
+		"axios": "^0.16.0",
+		"lodash.escape": "^4.0.1",
+		"vscode-languageclient": "^3.2.0"
+	},
+	"__metadata": {
+		"id": "a2902552-c8a0-4400-8f66-cd50ee70218c",
+		"publisherId": "327692fa-8e85-4b17-9737-b275db590671",
+		"publisherDisplayName": "Vincenzo Chianese"
+	}
+}

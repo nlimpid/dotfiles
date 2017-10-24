@@ -1,0 +1,97 @@
+{
+	"name": "pgsql",
+	"description": "postgres language support, snippets, runner. Fixed clone of postgresql@0.0.2 by JPTarquino",
+	"license": "MIT",
+	"version": "0.0.8",
+	"publisher": "doublefint",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"icon": "images/logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/doublefint/vscode-pgsql.git"
+	},
+	"categories": [
+		"Languages",
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:pgsql"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"category": "pgsql",
+				"command": "pgsql.run",
+				"title": "run in postgres"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "pgsql.run",
+				"key": "ctrl+f5",
+				"mac": "cmd+f5",
+				"when": "editorTextFocus && editorLangId == pgsql"
+			}
+		],
+		"languages": [
+			{
+				"id": "pgsql",
+				"extensions": [
+					".sql",
+					".ddl",
+					".dml",
+					".pgsql"
+				],
+				"aliases": [
+					"pgsql",
+					"postgres",
+					"PostgreSQL"
+				],
+				"configuration": "./pgsql.configuration.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "pgsql",
+				"path": "./snippets/pgsql_snippets.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "pgsql",
+				"scopeName": "source.plpgsql.postgres",
+				"path": "./syntaxes/pgsql.tmLanguage"
+			}
+		],
+		"configuration": {
+			"title": "pgsql configuration",
+			"type": "object",
+			"properties": {
+				"pgsql.connection": {
+					"type": "string",
+					"default": "postgres://username:pasword@localhost:5432/dbname",
+					"description": "connection string to your db"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^1.1.0"
+	},
+	"__metadata": {
+		"id": "741aaa35-4ec9-4adb-88e3-1ea8cb07f4c6",
+		"publisherId": "a575a30f-2743-47c1-a507-e0f545d8d4bc",
+		"publisherDisplayName": "doublefint"
+	}
+}
